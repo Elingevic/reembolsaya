@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ReembolsaYa — Lámina resumen · AseguraTech26</title>
+<style>
+  @font-face { font-family: Geist; src: url(geist.woff2) format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: GeistMono; src: url(geist-mono.woff2) format("woff2"); font-weight: 100 900; }
+  @page { size: 297mm 210mm; margin: 0; }
+  :root { --tinta:#111; --papel:#fff8ec; --amarillo:#ffd60a; --menta:#8ff0a4; --rosa:#ff9ebb; --celeste:#9bd7ff; --lila:#c8b6ff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Geist, sans-serif; color: var(--tinta); font-size: 9pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pagina { width: 297mm; height: 210mm; position: relative; overflow: hidden; padding: 11mm 13mm; background: var(--papel); background-image: radial-gradient(#e6dccb 0.35mm, transparent 0.4mm); background-size: 5mm 5mm; display: grid; grid-template-columns: 1.05fr 1fr; gap: 8mm; }
+  .etq { display: inline-block; font-size: 7pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 0.9mm 2.8mm; border: 0.5mm solid var(--tinta); border-radius: 99px; background: var(--amarillo); }
+  .logo { font-size: 40pt; font-weight: 900; letter-spacing: -0.055em; line-height: 1; margin-top: 4mm; white-space: nowrap; }
+  .logo span { background: var(--menta); border: 0.7mm solid var(--tinta); border-radius: 3mm; padding: 0 2.5mm 1mm; box-shadow: 1.3mm 1.3mm 0 var(--tinta); display: inline-block; transform: rotate(-3deg); margin-left: 1mm; }
+  .lema { font-size: 19pt; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; margin-top: 4mm; }
+  .lema mark { background: var(--amarillo); border: 0.5mm solid var(--tinta); border-radius: 1.5mm; padding: 0 1.5mm; }
+  p { margin-top: 2.5mm; color: #2a2825; }
+  b { font-weight: 800; color: var(--tinta); }
+  h3 { font-size: 9.8pt; font-weight: 850; margin-bottom: 1mm; }
+  .caja { border: 0.6mm solid var(--tinta); border-radius: 2.5mm; padding: 3mm 3.5mm; background: #fff; box-shadow: 1.1mm 1.1mm 0 var(--tinta); }
+  .caja p { margin: 0; font-size: 8.8pt; }
+  .prob { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin-top: 4mm; }
+  .prob .n { font-size: 14pt; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 1mm; }
+  .fuente { font-size: 6.5pt; font-weight: 700; color: #6b665d; margin-top: 1mm; }
+  .viaje { display: grid; grid-template-columns: repeat(5, 1fr); border: 0.6mm solid var(--tinta); border-radius: 2.5mm; overflow: hidden; box-shadow: 1.1mm 1.1mm 0 var(--tinta); margin-top: 4mm; }
+  .viaje > div { padding: 3.5mm 2.8mm; border-right: 0.6mm solid var(--tinta); }
+  .viaje > div:last-child { border-right: 0; }
+  .viaje .n { font-family: GeistMono, monospace; font-size: 6.5pt; font-weight: 800; }
+  .viaje b { display: block; font-size: 8.5pt; margin: 0.6mm 0; line-height: 1.15; }
+  .viaje p { font-size: 7.6pt; margin: 0; line-height: 1.3; }
+  .der { display: flex; flex-direction: column; gap: 4mm; justify-content: space-between; }
+  figure { border: 0.6mm solid var(--tinta); border-radius: 2.5mm; overflow: hidden; background: #fff; box-shadow: 1.1mm 1.1mm 0 var(--tinta); }
+  figure img { display: block; width: 100%; }
+  figcaption { font-size: 7.3pt; padding: 1.4mm 2.5mm; border-top: 0.6mm solid var(--tinta); }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .url { font-family: GeistMono, monospace; font-weight: 800; font-size: 10pt; background: var(--tinta); color: var(--amarillo); padding: 2.5mm 4mm; border-radius: 2.5mm; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .url span { color: #fff; font-family: Geist, sans-serif; font-weight: 700; font-size: 8pt; }
+</style>
+</head>
+<body>
+<section class="pagina">
+  <div style="display:flex;flex-direction:column;justify-content:space-between">
+    <div><span class="etq">AseguraTech26 · Desafío 4 · RegTech</span></div>
+    <div class="logo">Reembolsa<span>Ya</span></div>
+    <div class="lema">De la puerta de la clínica<br><mark>hasta que te pagan.</mark></div>
+    <p>Plataforma para el seguro de salud (HCM): acompaña al asegurado desde la admisión hasta el pago y le da a la SUDEASEG <b>datos para supervisar</b> tiempos de pago, negativas de atención y sobrecobros.</p>
+    <div class="prob">
+      <div class="caja"><div class="n">6 %</div><p>de los venezolanos tiene póliza de salud.</p><div class="fuente">Finanzas Digital, 2026</div></div>
+      <div class="caja"><div class="n">En la puerta</div><p>Clínicas investigadas por negar atención a asegurados.</p><div class="fuente">NTN24, 2023</div></div>
+      <div class="caja"><div class="n">1 PDF</div><p>por correo para pedir un reembolso, y a esperar.</p><div class="fuente">Instructivos públicos</div></div>
+    </div>
+    <div class="viaje">
+      <div style="background:var(--menta)"><span class="n">01</span><b>Pase de salud</b><p>La clínica ve póliza y saldo.</p></div>
+      <div style="background:var(--amarillo)"><span class="n">02</span><b>Carta aval</b><p>Qué cubre y qué pagas tú.</p></div>
+      <div style="background:var(--rosa)"><span class="n">03</span><b>Reembolso con foto</b><p>La IA lee y valida.</p></div>
+      <div style="background:var(--celeste)"><span class="n">04</span><b>Seguimiento</b><p>Días frente al plazo.</p></div>
+      <div style="background:var(--lila)"><span class="n">05</span><b>Reclamo formal</b><p>Listo con un toque.</p></div>
+    </div>
+    <div class="dos" style="margin-top:4mm">
+      <div class="caja"><h3>💼 Modelo</h3><p>SaaS para aseguradoras por asegurado activo y por caso. Gratis para asegurados y clínicas. Panel agregado para el supervisor.</p></div>
+      <div class="caja"><h3>🚀 Piloto</h3><p>1 aseguradora, 3 clínicas y 500 asegurados en 90 días. Medimos casos completos, días hasta el pago y minutos hasta la carta aval.</p></div>
+    </div>
+    <div class="url" style="margin-top:4mm">reembolsaya.vercel.app <span>Prototipo funcional · cifras ilustrativas</span></div>
+  </div>
+  <div class="der">
+    <figure><img src="img/supervisor.jpg" alt="" style="height:92mm;object-fit:cover;object-position:top"><figcaption><b>Supervisor:</b> días de pago por aseguradora contra el plazo, negativas por estado y sobrecobros.</figcaption></figure>
+    <div class="dos">
+      <figure><img src="img/reembolso.jpg" alt="" style="height:50mm;object-fit:cover;object-position:top left"><figcaption><b>Reembolso con foto</b></figcaption></figure>
+      <figure><img src="img/casos.jpg" alt="" style="height:50mm;object-fit:cover;object-position:0 22%"><figcaption><b>Reclamo formal automático</b></figcaption></figure>
+    </div>
+    <div class="caja" style="background:var(--tinta);color:#fff"><p style="color:#eee">ReembolsaYa es <b style="color:var(--amarillo)">software</b>: no vende seguros ni intermedia. El riesgo sigue en la aseguradora; los datos de salud se usan con consentimiento y llegan al supervisor <b style="color:var(--amarillo)">agregados y anónimos</b>.</p></div>
+  </div>
+</section>
+</body>
+</html>

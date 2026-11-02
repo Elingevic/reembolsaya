@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Geist; src: url(geist.woff2) format("woff2"); font-weight: 100 900; }
+@font-face { font-family: GeistMono; src: url(geist-mono.woff2) format("woff2"); font-weight: 100 900; }
+:root { --tinta:#111; --papel:#fff8ec; --amarillo:#ffd60a; --menta:#8ff0a4; --rosa:#ff9ebb; --celeste:#9bd7ff; --lila:#c8b6ff; --rojo:#ff4d4d; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:1920px; height:1080px; overflow:hidden; background:var(--papel); }
+body { font-family: Geist, sans-serif; color:var(--tinta); -webkit-font-smoothing:antialiased; }
+.esc { position:absolute; inset:0; display:none; overflow:hidden; background: var(--papel); background-image: radial-gradient(#e2d6c2 2px, transparent 2.5px); background-size: 30px 30px; }
+.esc.on { display:block; }
+.esc.am { background-color: var(--amarillo); background-image: radial-gradient(rgba(0,0,0,.12) 2px, transparent 2.5px); }
+.esc.ne { background-color: var(--tinta); background-image: radial-gradient(#2b2b2b 2px, transparent 2.5px); color:#fff; }
+.marca { position:absolute; left:90px; top:60px; font-weight:900; font-size:38px; letter-spacing:-.05em; display:flex; align-items:center; gap:6px; }
+.marca span, .logo span { background:var(--menta); border:4px solid var(--tinta); border-radius:14px; padding:0 12px 4px; box-shadow:6px 6px 0 var(--tinta); display:inline-block; transform:rotate(-3deg); }
+.marca span { border-width:3px; border-radius:10px; padding:0 8px 2px; box-shadow:4px 4px 0 var(--tinta); }
+.etq { display:inline-block; font-size:22px; font-weight:850; letter-spacing:.1em; text-transform:uppercase; padding:8px 20px; border:3px solid var(--tinta); border-radius:99px; background:#fff; color:var(--tinta); }
+h1 { font-size:86px; line-height:1.2; letter-spacing:-.05em; font-weight:900; }
+h2 { font-size:64px; line-height:1.22; letter-spacing:-.045em; font-weight:900; }
+mark { background:var(--amarillo); border:4px solid var(--tinta); border-radius:12px; padding:0 12px; -webkit-box-decoration-break:clone; box-decoration-break:clone; color:var(--tinta); }
+p.lead { font-size:34px; line-height:1.38; font-weight:500; }
+.caja { border:4px solid var(--tinta); border-radius:26px; background:#fff; box-shadow:10px 10px 0 var(--tinta); color:var(--tinta); }
+.fuente { font-size:20px; font-weight:700; color:#6b665d; }
+
+@keyframes sube { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
+@keyframes pop { 0% { opacity:0; transform:scale(.6) rotate(var(--r,0deg)); } 70% { opacity:1; transform:scale(1.06) rotate(var(--r,0deg)); } 100% { opacity:1; transform:scale(1) rotate(var(--r,0deg)); } }
+@keyframes aparece { from { opacity:0; } to { opacity:1; } }
+.a { animation: sube .7s cubic-bezier(.2,.7,.2,1) both; }
+.p { animation: pop .6s cubic-bezier(.2,.7,.2,1) both; }
+.f { animation: aparece .6s ease-out both; }
+
+/* escenas con captura: texto a la izquierda, pantalla a la derecha */
+.txt { position:absolute; left:90px; top:200px; width:700px; }
+.txt .etq { margin-bottom:28px; }
+.txt h2 { margin-bottom:28px; }
+.pantalla { position:absolute; right:80px; top:120px; width:1000px; height:840px; overflow:hidden; border:5px solid var(--tinta); border-radius:28px; background:#fff; box-shadow:14px 14px 0 var(--tinta); }
+.pantalla img { position:absolute; left:0; top:0; width:100%; display:block; }
+.pegatina { position:absolute; font-weight:900; font-size:34px; border:4px solid var(--tinta); border-radius:99px; padding:14px 30px; box-shadow:7px 7px 0 var(--tinta); white-space:nowrap; color:var(--tinta); }
+.vinetas { list-style:none; }
+.vinetas li { font-size:32px; line-height:1.3; font-weight:600; margin-top:20px; padding-left:52px; position:relative; }
+.vinetas li::before { content:""; position:absolute; left:6px; top:12px; width:20px; height:20px; background:var(--tinta); transform:rotate(45deg); }
+</style>
+</head>
+<body>
+
+<!-- 1. Portada -->
+<section class="esc am" id="e1">
+  <div style="position:absolute;left:150px;top:230px">
+    <div class="a"><span class="etq">AseguraTech26 · RegTech</span></div>
+    <div class="logo a" style="animation-delay:.2s;font-size:190px;font-weight:900;letter-spacing:-.06em;line-height:1;margin-top:40px;white-space:nowrap">Reembolsa<span style="--r:-3deg;margin-left:14px;border-width:7px;border-radius:30px;padding:0 26px 10px;box-shadow:14px 14px 0 var(--tinta)">Ya</span></div>
+    <h1 class="a" style="animation-delay:.9s;margin-top:60px;font-size:78px">De la puerta de la clínica<br><span style="background:#fff;border:5px solid var(--tinta);border-radius:14px;padding:0 18px">hasta que te pagan.</span></h1>
+  </div>
+  <div class="pegatina p" style="right:190px;top:180px;background:var(--rosa);--r:8deg;animation-delay:1.6s">🧾 Pagado ✓</div>
+</section>
+
+<!-- 2. Problema -->
+<section class="esc" id="e2">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div style="position:absolute;left:90px;right:90px;top:170px">
+    <span class="etq a" style="background:var(--rosa)">El problema</span>
+    <h2 class="a" style="animation-delay:.3s;margin-top:28px;font-size:76px">Tener seguro de salud no garantiza<br>que te atiendan, <mark>ni que te paguen.</mark></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:70px">
+      <div class="caja a" style="animation-delay:1.6s;padding:40px"><div style="font-size:84px;font-weight:900;letter-spacing:-.05em;line-height:1">6 %</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">de los venezolanos tiene póliza de salud.</div><div class="fuente" style="margin-top:20px">Finanzas Digital, 2026</div></div>
+      <div class="caja a" style="animation-delay:4.2s;padding:40px;background:var(--rosa)"><div style="font-size:62px;font-weight:900;letter-spacing:-.05em;line-height:1">🚫 En la puerta</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">Clínicas que se niegan a atender: "la aseguradora nos debe".</div><div class="fuente" style="margin-top:20px;color:#3a2a30">NTN24, 2023 · prensa regional</div></div>
+      <div class="caja a" style="animation-delay:7s;padding:40px"><div style="font-size:84px;font-weight:900;letter-spacing:-.05em;line-height:1">📎 1 PDF</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">por correo para pedir un reembolso. Y a esperar, sin saber cuánto.</div><div class="fuente" style="margin-top:20px">Instructivos públicos de reembolso</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. La idea -->
+<section class="esc" id="e3">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div style="position:absolute;left:90px;right:90px;top:200px">
+    <span class="etq a" style="background:var(--celeste)">La solución</span>
+    <h2 class="a" style="animation-delay:.3s;margin-top:28px;font-size:84px">Un solo recorrido, <mark>cinco momentos.</mark></h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:80px">
+      <div class="caja p" style="--r:-2deg;animation-delay:1.2s;padding:34px 28px;background:var(--menta)"><div style="font:800 24px GeistMono">01</div><div style="font-size:38px;font-weight:900;line-height:1.05;margin-top:14px;letter-spacing:-.03em">Pase de salud</div></div>
+      <div class="caja p" style="--r:1.5deg;animation-delay:1.9s;padding:34px 28px;background:var(--amarillo)"><div style="font:800 24px GeistMono">02</div><div style="font-size:38px;font-weight:900;line-height:1.05;margin-top:14px;letter-spacing:-.03em">Carta aval</div></div>
+      <div class="caja p" style="--r:-1.5deg;animation-delay:2.6s;padding:34px 28px;background:var(--rosa)"><div style="font:800 24px GeistMono">03</div><div style="font-size:38px;font-weight:900;line-height:1.05;margin-top:14px;letter-spacing:-.03em">Reembolso con foto</div></div>
+      <div class="caja p" style="--r:2deg;animation-delay:3.3s;padding:34px 28px;background:var(--celeste)"><div style="font:800 24px GeistMono">04</div><div style="font-size:38px;font-weight:900;line-height:1.05;margin-top:14px;letter-spacing:-.03em">Cuenta regresiva</div></div>
+      <div class="caja p" style="--r:-2deg;animation-delay:4s;padding:34px 28px;background:var(--lila)"><div style="font:800 24px GeistMono">05</div><div style="font-size:38px;font-weight:900;line-height:1.05;margin-top:14px;letter-spacing:-.03em">Reclamo formal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Pase y negativa -->
+<section class="esc" id="e4">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div class="txt">
+    <span class="etq a" style="background:var(--menta)">1 · En la puerta</span>
+    <h2 class="a" style="animation-delay:.2s">Muestras tu pase y la clínica <mark>ve tu cobertura.</mark></h2>
+    <ul class="vinetas">
+      <li class="a" style="animation-delay:1.2s">Póliza vigente, saldo y carta aval al instante.</li>
+      <li class="a" style="animation-delay:6.2s">¿Igual no te atienden? Lo registras en un minuto.</li>
+      <li class="a" style="animation-delay:7.6s">Avisamos a tu aseguradora y al supervisor.</li>
+    </ul>
+  </div>
+  <div class="pantalla a" style="animation-delay:.4s">
+    <img src="img/pase.jpg" data-ventana="0,5.8">
+    <img src="img/negativa.jpg" data-ventana="5.8,99" style="animation: pan4 4s ease-in-out 7.5s both">
+  </div>
+  <style>@keyframes pan4 { from { transform:translateY(0); } to { transform:translateY(-360px); } }</style>
+</section>
+
+<!-- 5. Presupuesto -->
+<section class="esc" id="e5">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div class="txt">
+    <span class="etq a" style="background:var(--amarillo)">2 · Carta aval</span>
+    <h2 class="a" style="animation-delay:.2s">Antes de operarte, <mark>sabes cuánto pagas.</mark></h2>
+    <div style="display:flex;gap:24px;margin-top:20px">
+      <div class="caja p" style="animation-delay:1.5s;padding:24px 30px;background:var(--menta)"><div style="font-size:24px;font-weight:700">Cubre el seguro</div><div style="font-size:64px;font-weight:900;letter-spacing:-.05em">$5.900</div></div>
+      <div class="caja p" style="animation-delay:2.3s;padding:24px 30px;background:var(--rosa)"><div style="font-size:24px;font-weight:700">Pagas tú</div><div style="font-size:64px;font-weight:900;letter-spacing:-.05em">$900</div></div>
+    </div>
+    <p class="lead a" style="animation-delay:3.6s;margin-top:34px">Y la carta aval llega en minutos, <b>sin llamadas ni colas.</b></p>
+  </div>
+  <div class="pantalla a" style="animation-delay:.4s"><img src="img/presupuesto.jpg"></div>
+  <div class="pegatina p" style="right:130px;bottom:70px;background:var(--amarillo);--r:-5deg;animation-delay:4.4s">Aprobada en 12 min ✓</div>
+</section>
+
+<!-- 6. Reembolso -->
+<section class="esc" id="e6">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div class="txt">
+    <span class="etq a" style="background:var(--rosa)">3 · Reembolso</span>
+    <h2 class="a" style="animation-delay:.2s">Una foto de la factura. <mark>Listo.</mark></h2>
+    <ul class="vinetas">
+      <li class="a" style="animation-delay:1.4s">La IA lee el RIF, el número de control y el monto en bolívares y dólares.</li>
+      <li class="a" style="animation-delay:4.4s">Te avisa <b>ahora</b> si falta un papel, no dentro de 15 días.</li>
+      <li class="a" style="animation-delay:7.4s">Detecta cobros por encima de lo normal.</li>
+    </ul>
+  </div>
+  <div class="pantalla a" style="animation-delay:.4s;height:auto;top:200px"><img src="img/reembolso.jpg" style="position:static"></div>
+  <div class="pegatina p" style="right:560px;top:150px;background:var(--rosa);--r:4deg;animation-delay:4.6s">❌ Falta el récipe</div>
+  <div class="pegatina p" style="right:150px;bottom:150px;background:var(--amarillo);--r:-4deg;animation-delay:7.6s">⚠ $120 vs. $60–80</div>
+</section>
+
+<!-- 7. Plazo y reclamo -->
+<section class="esc" id="e7">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div class="txt">
+    <span class="etq a" style="background:var(--celeste)">4 y 5 · Plazo y reclamo</span>
+    <h2 class="a" style="animation-delay:.2s">¿Se venció el plazo? <mark>El reclamo ya está escrito.</mark></h2>
+    <p class="lead a" style="animation-delay:1.8s">Cada caso cuenta los días hábiles frente al plazo de tu póliza. Si se vence, envías el reclamo formal con un toque.</p>
+  </div>
+  <div class="pantalla a" style="animation-delay:.4s"><img src="img/casos.jpg" style="animation: pan7 4.5s ease-in-out 2.5s both"></div>
+  <style>@keyframes pan7 { from { transform:translateY(0); } to { transform:translateY(-120px); } }</style>
+  <div class="pegatina p" style="right:120px;bottom:60px;background:var(--menta);--r:-4deg;animation-delay:7s">Reclamo enviado ✓</div>
+</section>
+
+<!-- 8. Supervisor -->
+<section class="esc" id="e8">
+  <div class="marca">Reembolsa<span>Ya</span></div>
+  <div class="txt" style="top:170px;width:660px">
+    <span class="etq a" style="background:var(--lila)">RegTech · Supervisor</span>
+    <h2 class="a" style="animation-delay:.2s">Y la SUDEASEG, por fin, <mark>ve dónde se traba.</mark></h2>
+    <ul class="vinetas">
+      <li class="a" style="animation-delay:2s">Días de pago de cada aseguradora frente al plazo.</li>
+      <li class="a" style="animation-delay:4.8s">Negativas de atención por clínica y estado.</li>
+      <li class="a" style="animation-delay:7.6s">Sobrecobros por procedimiento.</li>
+    </ul>
+    <p class="a fuente" style="animation-delay:9s;margin-top:30px;font-size:24px">Datos agregados y anónimos · cifras ilustrativas</p>
+  </div>
+  <div class="pantalla a" style="animation-delay:.4s;width:1060px"><img src="img/supervisor.jpg" style="animation: pan8 5s ease-in-out 6.5s both"></div>
+  <style>@keyframes pan8 { from { transform:translateY(0); } to { transform:translateY(-200px); } }</style>
+</section>
+
+<!-- 9. Cierre -->
+<section class="esc ne" id="e9">
+  <div style="position:absolute;left:0;right:0;top:250px;text-align:center">
+    <div class="logo a" style="font-size:150px;font-weight:900;letter-spacing:-.06em;line-height:1;white-space:nowrap">Reembolsa<span style="margin-left:12px;border-color:#fff;box-shadow:12px 12px 0 #fff;border-width:6px;border-radius:26px;padding:0 22px 8px;color:var(--tinta)">Ya</span></div>
+    <h1 class="a" style="animation-delay:.5s;margin-top:60px;font-size:68px">De la puerta de la clínica <span style="color:var(--amarillo)">hasta que te pagan.</span></h1>
+    <div class="p" style="animation-delay:1.4s;display:inline-block;margin-top:70px;background:var(--amarillo);color:var(--tinta);font:800 52px GeistMono;padding:22px 46px;border-radius:22px;border:5px solid #fff">reembolsaya.vercel.app</div>
+  </div>
+</section>
+
+<script>
+window.mostrar = function (n, t) {
+  document.querySelectorAll(".esc").forEach((e) => e.classList.toggle("on", e.id === "e" + n));
+  const esc = document.getElementById("e" + n);
+  for (const a of document.getAnimations()) { a.pause(); a.currentTime = t * 1000; }
+  esc.querySelectorAll("[data-ventana]").forEach((el) => {
+    const [a, b] = el.dataset.ventana.split(",").map(Number);
+    const fi = a === 0 ? 1 : Math.min(1, Math.max(0, (t - a) / 0.35));
+    const fo = Math.min(1, Math.max(0, (b - t) / 0.35));
+    el.style.opacity = Math.min(fi, fo);
+  });
+};
+</script>
+</body></html>

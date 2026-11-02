@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ReembolsaYa — Propuesta de innovación · AseguraTech26</title>
+<style>
+  @font-face { font-family: Geist; src: url(geist.woff2) format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: GeistMono; src: url(geist-mono.woff2) format("woff2"); font-weight: 100 900; }
+  @page { size: 210mm 297mm; margin: 0; }
+  :root { --tinta:#111; --papel:#fff8ec; --amarillo:#ffd60a; --menta:#8ff0a4; --rosa:#ff9ebb; --celeste:#9bd7ff; --naranja:#ff7a3d; --lila:#c8b6ff; --rojo:#ff4d4d; --gris:#55524c; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Geist, sans-serif; color: var(--tinta); font-size: 9.8pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pagina { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; padding: 16mm 16mm 20mm; background: var(--papel); background-image: radial-gradient(#e6dccb 0.35mm, transparent 0.4mm); background-size: 5mm 5mm; }
+  .pagina:last-child { page-break-after: auto; }
+  .pie { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 7.5pt; font-weight: 700; border-top: 0.6mm solid var(--tinta); padding-top: 2.2mm; }
+  .etq { display: inline-block; font-size: 7.5pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 1mm 3mm; border: 0.5mm solid var(--tinta); border-radius: 99px; background: #fff; }
+  .etq.am { background: var(--amarillo); } .etq.me { background: var(--menta); } .etq.ro { background: var(--rosa); } .etq.ce { background: var(--celeste); } .etq.li { background: var(--lila); }
+  h1 { font-size: 24pt; font-weight: 900; letter-spacing: -0.04em; line-height: 1.04; margin: 3mm 0 4mm; }
+  h1 mark { background: var(--amarillo); padding: 0 1.5mm; border: 0.5mm solid var(--tinta); border-radius: 1.5mm; }
+  h2 { font-size: 12.5pt; font-weight: 850; letter-spacing: -0.02em; margin: 5mm 0 2mm; }
+  h3 { font-size: 10.3pt; font-weight: 800; margin-bottom: 1mm; }
+  p { margin-bottom: 2.3mm; color: #2a2825; }
+  .intro { font-size: 11pt; line-height: 1.5; color: var(--tinta); }
+  b { font-weight: 800; }
+  ul { list-style: none; margin-bottom: 2.5mm; }
+  li { position: relative; padding-left: 4.5mm; margin-top: 1.2mm; color: #2a2825; }
+  li::before { content: ""; position: absolute; left: 0; top: 1.6mm; width: 2mm; height: 2mm; background: var(--tinta); transform: rotate(45deg); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .caja { border: 0.6mm solid var(--tinta); border-radius: 3mm; padding: 4mm 4.5mm; background: #fff; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
+  .caja.am { background: var(--amarillo); } .caja.me { background: var(--menta); } .caja.ro { background: var(--rosa); } .caja.ce { background: var(--celeste); } .caja.li { background: var(--lila); } .caja.ne { background: var(--tinta); color: #fff; } .caja.ne p { color: #ddd; }
+  .caja p:last-child { margin-bottom: 0; }
+  .dato { font-size: 17pt; font-weight: 900; letter-spacing: -0.04em; line-height: 1.02; margin-bottom: 1.5mm; }
+  .fuente { font-size: 7.3pt; font-weight: 700; color: var(--gris); margin-top: 1.5mm; }
+  .ic { font-size: 16pt; line-height: 1; margin-bottom: 1.5mm; }
+  figure { border: 0.6mm solid var(--tinta); border-radius: 3mm; overflow: hidden; background: #fff; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
+  figure img { display: block; width: 100%; }
+  figcaption { font-size: 7.8pt; padding: 1.8mm 3mm; border-top: 0.6mm solid var(--tinta); background: #fff; color: #2a2825; }
+  figcaption b { color: var(--tinta); }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 8.6pt; margin: 2mm 0 3mm; border: 0.6mm solid var(--tinta); border-radius: 2.5mm; overflow: hidden; background: #fff; }
+  th { text-align: left; font-size: 7.3pt; letter-spacing: .06em; text-transform: uppercase; background: var(--amarillo); padding: 1.8mm 2.5mm; border-bottom: 0.6mm solid var(--tinta); }
+  td { padding: 1.7mm 2.5mm; border-bottom: 0.3mm solid #e7e0d2; vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  .mono { font-family: GeistMono, monospace; }
+  .viaje { display: grid; grid-template-columns: repeat(5, 1fr); border: 0.6mm solid var(--tinta); border-radius: 3mm; overflow: hidden; box-shadow: 1.3mm 1.3mm 0 var(--tinta); margin: 3mm 0 4mm; }
+  .viaje > div { padding: 3mm; border-right: 0.6mm solid var(--tinta); }
+  .viaje > div:last-child { border-right: 0; }
+  .viaje .n { font-family: GeistMono, monospace; font-size: 7.5pt; font-weight: 800; }
+  .viaje b { display: block; font-size: 9.5pt; margin: 1mm 0; }
+  .viaje p { font-size: 7.8pt; margin: 0; line-height: 1.35; }
+  .paso { display: flex; gap: 3mm; align-items: flex-start; margin-bottom: 2.4mm; }
+  .num { flex: 0 0 auto; width: 7mm; height: 7mm; border: 0.5mm solid var(--tinta); border-radius: 50%; background: var(--amarillo); font-weight: 900; font-size: 8.5pt; display: inline-flex; align-items: center; justify-content: center; }
+  .paso p { margin: 0.6mm 0 0; }
+
+  .portada { background: var(--amarillo); background-image: radial-gradient(rgba(0,0,0,.13) 0.35mm, transparent 0.4mm); background-size: 5mm 5mm; padding: 20mm 18mm; display: flex; flex-direction: column; }
+  .portada .logo { white-space: nowrap; font-size: 54pt; font-weight: 900; letter-spacing: -0.055em; line-height: 1; margin-top: 16mm; display: flex; align-items: center; gap: 3mm; }
+  .portada .logo span { background: var(--menta); border: 0.9mm solid var(--tinta); border-radius: 4mm; padding: 0 4mm 2mm; box-shadow: 2mm 2mm 0 var(--tinta); transform: rotate(-3deg); display: inline-block; }
+  .portada .lema { font-size: 23pt; font-weight: 900; line-height: 1.1; margin-top: 8mm; letter-spacing: -0.035em; }
+  .portada .lema mark { background: #fff; border: 0.6mm solid var(--tinta); padding: 0 2mm; border-radius: 1.5mm; }
+  .portada .sub { font-size: 11.5pt; margin-top: 5mm; line-height: 1.5; max-width: 160mm; color: var(--tinta); }
+  .portada figure { margin: 8mm 0 8mm; transform: rotate(-1.2deg); box-shadow: 2.2mm 2.2mm 0 var(--tinta); }
+  .portada .datos { margin-top: auto; font-size: 9.8pt; line-height: 1.7; background: #fff; border: 0.6mm solid var(--tinta); border-radius: 3mm; padding: 3.5mm 5mm; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
+  .pegatina { position: absolute; font-weight: 900; font-size: 12pt; border: 0.7mm solid var(--tinta); border-radius: 99px; padding: 2mm 5mm; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
+</style>
+</head>
+<body>
+
+<section class="pagina portada">
+  <span class="etq" style="align-self:flex-start">AseguraTech26 · Desafío 4 · RegTech</span>
+  <div class="logo">Reembolsa<span>Ya</span></div>
+  <div class="lema">De la puerta de la clínica<br><mark>hasta que te pagan.</mark></div>
+  <p class="sub">Una plataforma para el seguro de salud (HCM) que acompaña al asegurado en los cinco momentos donde hoy se traba todo: la admisión, la carta aval, el reembolso, la espera y el reclamo. Y que le da a la SUDEASEG, por primera vez, datos para supervisar tiempos de pago, negativas de atención y sobrecobros.</p>
+  <figure><img src="img/landing.jpg" alt=""></figure>
+  <span class="pegatina" style="right:14mm;top:142mm;background:var(--rosa);transform:rotate(6deg)">Pagado ✓</span>
+  <div class="datos">
+    <b>Área:</b> RegTech (Desafío 4), con impacto directo en seguros de salud<br>
+    <b>Etapa:</b> pre-semilla, con prototipo funcional en línea<br>
+    <b>Prototipo:</b> <span class="mono">reembolsaya.vercel.app</span><br>
+    Noviembre de 2026
+  </div>
+</section>
+
+<section class="pagina">
+  <span class="etq am">Resumen ejecutivo</span>
+  <h1>Tener seguro de salud debería <mark>servir</mark> el día que lo necesitas</h1>
+  <p class="intro">Hoy, en Venezuela, un asegurado puede quedarse en la puerta de la clínica porque "la aseguradora nos debe", pedir un reembolso escaneando todo en un solo PDF y esperar sin saber cuánto falta. <b>ReembolsaYa</b> ordena ese recorrido con cinco herramientas: <b>pase digital de salud, carta aval en minutos, reembolso con una foto, seguimiento del plazo y reclamo formal automático</b>. Cada paso deja un dato anónimo que alimenta un <b>panel de supervisión</b> para la SUDEASEG.</p>
+  <div class="cols3" style="margin:4mm 0 2mm">
+    <div class="caja me"><div class="ic">🙋‍♂️</div><h3>Para el asegurado</h3><p>Sabe qué le cubren, cuánto paga y cuánto falta para su pago. Si se vence el plazo, el reclamo ya está escrito.</p></div>
+    <div class="caja ce"><div class="ic">🏢</div><h3>Para la aseguradora</h3><p>Casos completos al llegar, menos devoluciones y alertas de duplicados y sobrecobros.</p></div>
+    <div class="caja li"><div class="ic">🔎</div><h3>Para el supervisor</h3><p>Evidencia agregada para actuar antes de que el problema llegue a la prensa.</p></div>
+  </div>
+  <span class="etq ro" style="margin-top:4mm">El problema</span>
+  <h1 style="font-size:19pt">Pagar la póliza no garantiza que te atiendan, ni que te paguen a tiempo</h1>
+  <div class="cols" style="gap:4.5mm">
+    <div class="caja"><div class="dato">6 %</div><p>de los venezolanos tiene una póliza de salud. Es un mercado pequeño que se pierde si la experiencia decepciona.</p><div class="fuente">Finanzas Digital, abril de 2026</div></div>
+    <div class="caja"><div class="dato">Te dejan en la puerta</div><p>En 2023 el Ministerio Público anunció investigaciones a clínicas que se negaban a atender a pacientes asegurados.</p><div class="fuente">NTN24, agosto de 2023</div></div>
+    <div class="caja"><div class="dato">"Ruleteados"</div><p>Medios regionales han reportado asegurados enviados de clínica en clínica porque las aseguradoras deben a los prestadores.</p><div class="fuente">La Patilla; Diario de los Andes (Táchira)</div></div>
+    <div class="caja"><div class="dato">1 PDF por correo</div><p>Los instructivos de reembolso piden escanear todo en un único archivo con límite de peso. Si falta un papel, el caso vuelve atrás.</p><div class="fuente">Instructivos públicos de aseguradoras y corredores</div></div>
+  </div>
+  <div class="caja am" style="margin-top:5mm"><b>La raíz común:</b> el proceso no deja rastro estructurado. Nadie, ni el asegurado, ni la aseguradora, ni el supervisor, ve con datos dónde se traba cada caso.</div>
+  <div class="pie"><span>ReembolsaYa · AseguraTech26</span><span>2</span></div>
+</section>
+
+<section class="pagina">
+  <span class="etq ce">La solución</span>
+  <h1>Un solo recorrido, cinco momentos</h1>
+  <div class="viaje">
+    <div style="background:var(--menta)"><span class="n">01</span><b>En la puerta</b><p>Pase digital: la clínica ve póliza vigente, saldo y carta aval.</p></div>
+    <div style="background:var(--amarillo)"><span class="n">02</span><b>Carta aval</b><p>Presupuesto claro: qué cubre el seguro y qué pagas tú.</p></div>
+    <div style="background:var(--rosa)"><span class="n">03</span><b>Reembolso con foto</b><p>La IA lee, valida y avisa lo que falta antes de enviar.</p></div>
+    <div style="background:var(--celeste)"><span class="n">04</span><b>Seguimiento</b><p>Cuenta regresiva del plazo de pago de la póliza.</p></div>
+    <div style="background:var(--lila)"><span class="n">05</span><b>Reclamo formal</b><p>Si se vence, sale redactado con un toque.</p></div>
+  </div>
+  <div class="cols" style="align-items:start">
+    <div>
+      <h2 style="margin-top:0">1. Pase de salud</h2>
+      <p>Un código QR que el asegurado muestra en la admisión. La clínica confirma al instante que la póliza está vigente, cuánto saldo queda y si ya hay carta aval. Si aun así le niegan la atención, el asegurado lo <b>registra en un minuto</b>: la aseguradora recibe el aviso, el paciente ve clínicas con convenio cerca y el caso suma, anónimo, al panel del supervisor.</p>
+      <h2>2. Presupuesto y carta aval</h2>
+      <p>Antes de una cirugía, el asegurado sube el presupuesto y ve <b>qué cubre la póliza y qué paga él</b>, con alertas de honorarios por encima de la referencia de la zona. La carta aval se pide desde la app o desde la clínica y queda visible para ambos.</p>
+    </div>
+    <div style="display:grid;gap:4mm">
+      <figure><img src="img/pase.jpg" alt=""><figcaption><b>Pase de salud.</b> La clínica ve cobertura y carta aval al escanearlo.</figcaption></figure>
+      <figure><img src="img/presupuesto.jpg" alt=""><figcaption><b>Presupuesto.</b> Cubierto $5.900, a cargo del paciente $900, honorarios marcados.</figcaption></figure>
+    </div>
+  </div>
+  <div class="pie"><span>ReembolsaYa · AseguraTech26</span><span>3</span></div>
+</section>
+
+<section class="pagina">
+  <span class="etq ro">La solución</span>
+  <h1>El reembolso, sin papeles devueltos</h1>
+  <div class="cols" style="align-items:start">
+    <div>
+      <h2 style="margin-top:0">3. Reembolso con una foto</h2>
+      <div class="paso"><span class="num">a</span><p><b>Foto del informe y la factura</b>, en la app o por WhatsApp.</p></div>
+      <div class="paso"><span class="num">b</span><p><b>La IA extrae</b> médico, RIF, número de control, fecha y monto en bolívares, y lo convierte a dólares con la tasa oficial del día.</p></div>
+      <div class="paso"><span class="num">c</span><p><b>Valida antes de enviar:</b> documentos que exige la póliza, facturas duplicadas y cobros fuera del rango de referencia.</p></div>
+      <div class="paso"><span class="num">d</span><p><b>El caso llega completo</b> a la aseguradora, en un formato estándar.</p></div>
+      <h2>4. Seguimiento del plazo</h2>
+      <p>Cada caso muestra su estado (recibido, en revisión, aprobado, pagado) y una barra con los <b>días hábiles transcurridos frente al plazo de la póliza</b>.</p>
+      <h2>5. Reclamo formal automático</h2>
+      <p>Si el plazo se vence, ReembolsaYa redacta el reclamo con la referencia del caso, la póliza y las fechas. Con un toque se envía a la aseguradora y queda registrado para el supervisor. Si no hay respuesta, el asegurado puede escalarlo a la SUDEASEG con la línea de tiempo y los documentos ya adjuntos.</p>
+      <div class="caja am" style="margin-top:3mm"><b>"¿Me cubre?"</b> Un asistente responde en lenguaje simple y <b>cita la cláusula exacta</b> de la póliza, para que nadie diga "eso no está cubierto" sin mostrar dónde.</div>
+    </div>
+    <div style="display:grid;gap:4mm">
+      <figure><img src="img/reembolso.jpg" alt=""><figcaption><b>Reembolso.</b> Datos leídos, récipe faltante y alerta de cobro alto.</figcaption></figure>
+      <figure><img src="img/casos.jpg" alt="" style="height:118mm;object-fit:cover;object-position:top"><figcaption><b>Mis casos.</b> Plazo vencido y reclamo formal listo para enviar.</figcaption></figure>
+    </div>
+  </div>
+  <div class="pie"><span>ReembolsaYa · AseguraTech26</span><span>4</span></div>
+</section>
+
+<section class="pagina">
+  <span class="etq li">RegTech</span>
+  <h1>Lo que ve el supervisor</h1>
+  <p class="intro">Cada paso del recorrido genera un dato estructurado. Agregado y anonimizado, se convierte en un <b>panel de supervisión del ramo salud</b>: supervisar con evidencia, no solo con denuncias.</p>
+  <figure style="margin:3mm 0 4mm"><img src="img/supervisor.jpg" alt="" style="height:92mm;object-fit:cover;object-position:top"><figcaption><b>Panel del supervisor</b> (cifras ilustrativas). Días de pago por aseguradora contra el plazo, negativas por estado y sobrecobros por procedimiento.</figcaption></figure>
+  <table>
+    <tr><th style="width:30%">Indicador</th><th>Qué permite hacer</th></tr>
+    <tr><td><b>Días hábiles de pago por aseguradora</b></td><td>Detectar quién paga fuera del plazo de sus propias pólizas y priorizar inspecciones.</td></tr>
+    <tr><td><b>Negativas de atención</b></td><td>Ver dónde y por qué se rechaza a asegurados (clínica, estado, motivo) y cruzarlo con las deudas entre aseguradoras y prestadores.</td></tr>
+    <tr><td><b>Sobrecobros por procedimiento</b></td><td>Comparar lo cobrado con rangos de referencia por zona. Un sobrecobro consume la suma asegurada del paciente.</td></tr>
+    <tr><td><b>Reclamos escalados</b></td><td>Recibir casos con su línea de tiempo y documentos, sin que el asegurado vaya a una oficina.</td></tr>
+  </table>
+  <div class="cols" style="margin-top:3mm">
+    <figure><img src="img/clinica.jpg" alt="" style="height:44mm;object-fit:cover;object-position:top"><figcaption><b>Clínica.</b> Admisión con el pase y carta aval.</figcaption></figure>
+    <figure><img src="img/aseguradora.jpg" alt="" style="height:44mm;object-fit:cover;object-position:top"><figcaption><b>Aseguradora.</b> Bandeja con alertas calculadas.</figcaption></figure>
+  </div>
+  <div class="pie"><span>ReembolsaYa · AseguraTech26</span><span>5</span></div>
+</section>
+
+<section class="pagina">
+  <span class="etq am">Viabilidad</span>
+  <h1>Modelo, regulación y plan</h1>
+  <div class="cols" style="align-items:start">
+    <div>
+      <h2 style="margin-top:0">Modelo de negocio</h2>
+      <ul>
+        <li><b>Aseguradoras (pagan):</b> licencia SaaS por asegurado HCM activo al mes, más un cargo por caso procesado. Lo justifican menos devoluciones, menos llamadas y sobrecobros detectados.</li>
+        <li><b>Asegurados:</b> gratis, como parte del servicio de su aseguradora o corredor.</li>
+        <li><b>Clínicas:</b> gratis. Ganan cartas aval más rápidas y visibilidad de pagos pendientes.</li>
+        <li><b>Supervisor:</b> acceso al panel agregado como parte del acuerdo regulatorio, sin costo para el Estado.</li>
+      </ul>
+      <h2>Encaje regulatorio</h2>
+      <ul>
+        <li>ReembolsaYa es <b>software</b>: no vende seguros, no intermedia y no asume riesgo. La relación comercial sigue con la aseguradora y el corredor.</li>
+        <li>Puede probarse en un <b>entorno de pruebas regulatorio</b> con una aseguradora y pocas clínicas.</li>
+        <li><b>Datos de salud:</b> consentimiento expreso, cifrado y acceso por rol. El supervisor solo recibe datos agregados y anónimos, salvo el reclamo que el asegurado decide escalar.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="margin-top:0">Plan de 12 meses</h2>
+      <table>
+        <tr><th>Fase</th><th>Qué se hace</th></tr>
+        <tr><td><b>0–3 meses</b></td><td>Piloto con 1 aseguradora, 3 clínicas y 500 asegurados: pase, carta aval y reembolso con foto.</td></tr>
+        <tr><td><b>4–6 meses</b></td><td>Seguimiento de plazos, reclamo formal y primera versión del panel para la SUDEASEG.</td></tr>
+        <tr><td><b>7–12 meses</b></td><td>3 aseguradoras, red de clínicas por estado, rangos de referencia de precios y API para corredores.</td></tr>
+      </table>
+      <h2>Cómo medimos el éxito</h2>
+      <ul>
+        <li>Casos que llegan completos al primer envío.</li>
+        <li>Días hábiles promedio hasta el pago.</li>
+        <li>Minutos hasta la carta aval.</li>
+        <li>Negativas de atención resueltas el mismo día.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="caja ne" style="margin-top:4mm"><h3 style="color:#fff">Riesgos y cómo los atendemos</h3><p><b style="color:var(--amarillo)">Adopción de clínicas:</b> el pase funciona aunque la clínica no esté integrada, porque basta escanearlo. <b style="color:var(--amarillo)">Datos sensibles:</b> mínimo necesario y anonimización antes de agregar. <b style="color:var(--amarillo)">Lectura con IA:</b> el asegurado confirma cada campo antes de enviar.</p></div>
+  <div style="margin-top:5mm">
+    <span class="etq">Fuentes</span>
+    <p style="font-size:7.8pt;margin-top:2mm;color:var(--gris)">Finanzas Digital (abril de 2026), penetración de pólizas de salud · NTN24 (agosto de 2023), investigación del Ministerio Público a clínicas · La Patilla y Diario de los Andes, asegurados rechazados en clínicas · Instructivos públicos de reembolso de aseguradoras y corredores en Venezuela. Montos, aseguradoras, clínicas, plazos y cifras del panel en el prototipo son ilustrativos.</p>
+  </div>
+  <div class="pie"><span>ReembolsaYa · AseguraTech26 · reembolsaya.vercel.app</span><span>6</span></div>
+</section>
+</body>
+</html>

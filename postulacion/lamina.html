@@ -37,6 +37,36 @@
   .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
   .url { font-family: GeistMono, monospace; font-weight: 800; font-size: 10pt; background: var(--tinta); color: var(--amarillo); padding: 2.5mm 4mm; border-radius: 2.5mm; display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
   .url span { color: #fff; font-family: Geist, sans-serif; font-weight: 700; font-size: 8pt; }
+
+  /* ===== Estilo corporativo ===== */
+  :root { --tinta:#0f172a; --papel:#f8fafc; --amarillo:#fff7e0; --menta:#e7f7ef; --rosa:#fdeeee; --celeste:#eaf2fe; --lila:#eef1fb; --gris:#64748b; --navy:#0b2545; --esm:#059669; }
+  .pagina { background:#fff; background-image:none; }
+  .etq { border:0; padding:0; background:none !important; color:#1d4ed8; letter-spacing:.1em; }
+  h1, h2, h3 { color: var(--navy); }
+  h1 { font-weight:750; letter-spacing:-0.03em; }
+  h1 mark { background:none; border:0; padding:0; color:var(--esm); }
+  .caja { border:0.3mm solid #e2e8f0; box-shadow:none; border-radius:2.5mm; background:#f8fafc; }
+  .caja.am { background:#fffbeb; border-color:#fde68a; } .caja.me { background:#ecfdf5; border-color:#a7f3d0; } .caja.ro { background:#fef2f2; border-color:#fecaca; } .caja.ce { background:#eff6ff; border-color:#bfdbfe; } .caja.li { background:#eef2ff; border-color:#c7d2fe; }
+  .caja.ne { background:var(--navy); border-color:var(--navy); } .caja.ne h3 { color:#fff; }
+  .dato { color:var(--navy); font-weight:750; }
+  figure { border:0.3mm solid #e2e8f0; box-shadow:none; border-radius:2.5mm; }
+  figcaption { border-top:0.3mm solid #e2e8f0; color:#475569; }
+  table { border:0.3mm solid #e2e8f0; border-radius:2mm; }
+  th { background:#f1f5f9; color:#64748b; border-bottom:0.3mm solid #e2e8f0; }
+  .viaje { border:0; box-shadow:none; gap:2.5mm; overflow:visible; }
+  .viaje > div { background:#fff !important; border:0.3mm solid #e2e8f0 !important; border-top:0.8mm solid var(--navy) !important; border-radius:2mm; }
+  .viaje > div:nth-child(2n) { border-top-color:var(--esm) !important; }
+  .viaje b { color:var(--navy); } .viaje p { color:#64748b; }
+  .num { background:var(--navy); color:#fff; border:0; }
+  li::before { background:var(--esm); transform:none; border-radius:50%; width:1.6mm; height:1.6mm; top:1.8mm; }
+  .pie { border-top:0.3mm solid #e2e8f0; color:#94a3b8; font-weight:500; }
+  .url { background:var(--navy) !important; }
+  .url, .url * { color:#fff !important; }
+  .url { color:#6ee7b7 !important; }
+
+  .logo { color:var(--navy); } .logo span { background:none; border:0; box-shadow:none; transform:none; color:var(--esm); padding:0; margin:0; }
+  .lema { color:var(--navy); } .lema mark { background:none; border:0; color:var(--esm); padding:0; }
+  .prob .n { color:var(--navy); }
 </style>
 </head>
 <body>
@@ -59,8 +89,8 @@
       <div style="background:var(--lila)"><span class="n">05</span><b>Reclamo formal</b><p>Listo con un toque.</p></div>
     </div>
     <div class="dos" style="margin-top:4mm">
-      <div class="caja"><h3>💼 Modelo</h3><p>SaaS para aseguradoras por asegurado activo y por caso. Gratis para asegurados y clínicas. Panel agregado para el supervisor.</p></div>
-      <div class="caja"><h3>🚀 Piloto</h3><p>1 aseguradora, 3 clínicas y 500 asegurados en 90 días. Medimos casos completos, días hasta el pago y minutos hasta la carta aval.</p></div>
+      <div class="caja"><h3>Modelo</h3><p>SaaS para aseguradoras por asegurado activo y por caso. Gratis para asegurados y clínicas. Panel agregado para el supervisor.</p></div>
+      <div class="caja"><h3>Piloto</h3><p>1 aseguradora, 3 clínicas y 500 asegurados en 90 días. Medimos casos completos, días hasta el pago y minutos hasta la carta aval.</p></div>
     </div>
     <div class="url" style="margin-top:4mm">reembolsaya.vercel.app <span>Prototipo funcional · cifras ilustrativas</span></div>
   </div>

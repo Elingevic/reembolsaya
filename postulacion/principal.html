@@ -61,6 +61,43 @@
   .portada figure { margin: 8mm 0 8mm; transform: rotate(-1.2deg); box-shadow: 2.2mm 2.2mm 0 var(--tinta); }
   .portada .datos { margin-top: auto; font-size: 9.8pt; line-height: 1.7; background: #fff; border: 0.6mm solid var(--tinta); border-radius: 3mm; padding: 3.5mm 5mm; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
   .pegatina { position: absolute; font-weight: 900; font-size: 12pt; border: 0.7mm solid var(--tinta); border-radius: 99px; padding: 2mm 5mm; box-shadow: 1.3mm 1.3mm 0 var(--tinta); }
+
+  /* ===== Estilo corporativo ===== */
+  :root { --tinta:#0f172a; --papel:#f8fafc; --amarillo:#fff7e0; --menta:#e7f7ef; --rosa:#fdeeee; --celeste:#eaf2fe; --lila:#eef1fb; --gris:#64748b; --navy:#0b2545; --esm:#059669; }
+  .pagina { background:#fff; background-image:none; }
+  .etq { border:0; padding:0; background:none !important; color:#1d4ed8; letter-spacing:.1em; }
+  h1, h2, h3 { color: var(--navy); }
+  h1 { font-weight:750; letter-spacing:-0.03em; }
+  h1 mark { background:none; border:0; padding:0; color:var(--esm); }
+  .caja { border:0.3mm solid #e2e8f0; box-shadow:none; border-radius:2.5mm; background:#f8fafc; }
+  .caja.am { background:#fffbeb; border-color:#fde68a; } .caja.me { background:#ecfdf5; border-color:#a7f3d0; } .caja.ro { background:#fef2f2; border-color:#fecaca; } .caja.ce { background:#eff6ff; border-color:#bfdbfe; } .caja.li { background:#eef2ff; border-color:#c7d2fe; }
+  .caja.ne { background:var(--navy); border-color:var(--navy); } .caja.ne h3 { color:#fff; }
+  .dato { color:var(--navy); font-weight:750; }
+  figure { border:0.3mm solid #e2e8f0; box-shadow:none; border-radius:2.5mm; }
+  figcaption { border-top:0.3mm solid #e2e8f0; color:#475569; }
+  table { border:0.3mm solid #e2e8f0; border-radius:2mm; }
+  th { background:#f1f5f9; color:#64748b; border-bottom:0.3mm solid #e2e8f0; }
+  .viaje { border:0; box-shadow:none; gap:2.5mm; overflow:visible; }
+  .viaje > div { background:#fff !important; border:0.3mm solid #e2e8f0 !important; border-top:0.8mm solid var(--navy) !important; border-radius:2mm; }
+  .viaje > div:nth-child(2n) { border-top-color:var(--esm) !important; }
+  .viaje b { color:var(--navy); } .viaje p { color:#64748b; }
+  .num { background:var(--navy); color:#fff; border:0; }
+  li::before { background:var(--esm); transform:none; border-radius:50%; width:1.6mm; height:1.6mm; top:1.8mm; }
+  .pie { border-top:0.3mm solid #e2e8f0; color:#94a3b8; font-weight:500; }
+  .url { background:var(--navy) !important; }
+  .url, .url * { color:#fff !important; }
+  .url { color:#6ee7b7 !important; }
+
+  .portada { background:linear-gradient(160deg,#0b2545 0%,#13315c 100%) !important; background-image:linear-gradient(160deg,#0b2545 0%,#13315c 100%) !important; color:#fff; }
+  .portada .etq { color:#6ee7b7; }
+  .portada .logo { color:#fff; gap:0; }
+  .portada .logo span { background:none; border:0; box-shadow:none; transform:none; color:#34d399; padding:0; }
+  .portada .lema { color:#fff; } .portada .lema mark { background:none; border:0; color:#34d399; padding:0; }
+  .portada .sub { color:#cbd5e1; }
+  .portada figure { transform:none; box-shadow:0 6mm 16mm rgba(0,0,0,.35); border:0; }
+  .portada .datos { background:rgba(255,255,255,.06); border:0.3mm solid rgba(255,255,255,.15); box-shadow:none; color:#cbd5e1; }
+  .portada .datos b { color:#fff; }
+  .pegatina { display:none; }
 </style>
 </head>
 <body>
@@ -85,9 +122,9 @@
   <h1>Tener seguro de salud debería <mark>servir</mark> el día que lo necesitas</h1>
   <p class="intro">Hoy, en Venezuela, un asegurado puede quedarse en la puerta de la clínica porque "la aseguradora nos debe", pedir un reembolso escaneando todo en un solo PDF y esperar sin saber cuánto falta. <b>ReembolsaYa</b> ordena ese recorrido con cinco herramientas: <b>pase digital de salud, carta aval en minutos, reembolso con una foto, seguimiento del plazo y reclamo formal automático</b>. Cada paso deja un dato anónimo que alimenta un <b>panel de supervisión</b> para la SUDEASEG.</p>
   <div class="cols3" style="margin:4mm 0 2mm">
-    <div class="caja me"><div class="ic">🙋‍♂️</div><h3>Para el asegurado</h3><p>Sabe qué le cubren, cuánto paga y cuánto falta para su pago. Si se vence el plazo, el reclamo ya está escrito.</p></div>
-    <div class="caja ce"><div class="ic">🏢</div><h3>Para la aseguradora</h3><p>Casos completos al llegar, menos devoluciones y alertas de duplicados y sobrecobros.</p></div>
-    <div class="caja li"><div class="ic">🔎</div><h3>Para el supervisor</h3><p>Evidencia agregada para actuar antes de que el problema llegue a la prensa.</p></div>
+    <div class="caja me"><h3>Para el asegurado</h3><p>Sabe qué le cubren, cuánto paga y cuánto falta para su pago. Si se vence el plazo, el reclamo ya está escrito.</p></div>
+    <div class="caja ce"><h3>Para la aseguradora</h3><p>Casos completos al llegar, menos devoluciones y alertas de duplicados y sobrecobros.</p></div>
+    <div class="caja li"><h3>Para el supervisor</h3><p>Evidencia agregada para actuar antes de que el problema llegue a la prensa.</p></div>
   </div>
   <span class="etq ro" style="margin-top:4mm">El problema</span>
   <h1 style="font-size:19pt">Pagar la póliza no garantiza que te atiendan, ni que te paguen a tiempo</h1>

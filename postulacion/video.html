@@ -39,6 +39,25 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
 .vinetas { list-style:none; }
 .vinetas li { font-size:32px; line-height:1.3; font-weight:600; margin-top:20px; padding-left:52px; position:relative; }
 .vinetas li::before { content:""; position:absolute; left:6px; top:12px; width:20px; height:20px; background:var(--tinta); transform:rotate(45deg); }
+
+/* ===== Estilo corporativo ===== */
+:root { --tinta:#0f172a; --papel:#f6f8fb; --amarillo:#fffbeb; --menta:#ecfdf5; --rosa:#fef2f2; --celeste:#eff6ff; --lila:#eef2ff; --navy:#0b2545; --esm:#059669; }
+.esc { background-color:#f6f8fb; background-image:none; }
+.esc.am, .esc.ne { background:linear-gradient(160deg,#0b2545 0%,#13315c 100%); color:#fff; }
+.marca { color:var(--navy); font-weight:750; font-size:32px; letter-spacing:-.03em; }
+.marca span, .logo span { background:none !important; border:0 !important; box-shadow:none !important; transform:none !important; padding:0 !important; margin:0 !important; color:var(--esm); }
+.esc.am .logo span, .esc.ne .logo span { color:#34d399; }
+.etq { border:0; background:none !important; padding:0; color:#1d4ed8; font-weight:700; }
+.esc.am .etq { color:#6ee7b7; }
+h1, h2 { color:var(--navy); font-weight:750; letter-spacing:-.035em; }
+.esc.am h1, .esc.ne h1 { color:#fff; }
+mark { background:none; border:0; padding:0; color:var(--esm); }
+.caja { border:2px solid #e2e8f0; box-shadow:0 8px 30px rgba(11,37,69,.08); border-radius:20px; }
+.pantalla { border:2px solid #e2e8f0; box-shadow:0 20px 60px rgba(11,37,69,.18); border-radius:20px; }
+.pegatina { background:var(--navy) !important; color:#fff; border:0; box-shadow:0 10px 30px rgba(11,37,69,.3); border-radius:14px; font-weight:650; font-size:30px; --r:0deg !important; }
+.vinetas li::before { background:var(--esm); transform:none; border-radius:50%; width:16px; height:16px; top:14px; }
+p.lead { color:#334155; }
+.esc .p { --r:0deg !important; } #e1 .pegatina { display:none; }
 </style>
 </head>
 <body>
@@ -48,9 +67,9 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
   <div style="position:absolute;left:150px;top:230px">
     <div class="a"><span class="etq">AseguraTech26 · RegTech</span></div>
     <div class="logo a" style="animation-delay:.2s;font-size:190px;font-weight:900;letter-spacing:-.06em;line-height:1;margin-top:40px;white-space:nowrap">Reembolsa<span style="--r:-3deg;margin-left:14px;border-width:7px;border-radius:30px;padding:0 26px 10px;box-shadow:14px 14px 0 var(--tinta)">Ya</span></div>
-    <h1 class="a" style="animation-delay:.9s;margin-top:60px;font-size:78px">De la puerta de la clínica<br><span style="background:#fff;border:5px solid var(--tinta);border-radius:14px;padding:0 18px">hasta que te pagan.</span></h1>
+    <h1 class="a" style="animation-delay:.9s;margin-top:60px;font-size:78px">De la puerta de la clínica<br><span style="color:#34d399">hasta que te pagan.</span></h1>
   </div>
-  <div class="pegatina p" style="right:190px;top:180px;background:var(--rosa);--r:8deg;animation-delay:1.6s">🧾 Pagado ✓</div>
+  <div class="pegatina p" style="right:190px;top:180px;background:var(--rosa);--r:8deg;animation-delay:1.6s">Pagado ✓</div>
 </section>
 
 <!-- 2. Problema -->
@@ -60,9 +79,9 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
     <span class="etq a" style="background:var(--rosa)">El problema</span>
     <h2 class="a" style="animation-delay:.3s;margin-top:28px;font-size:76px">Tener seguro de salud no garantiza<br>que te atiendan, <mark>ni que te paguen.</mark></h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:70px">
-      <div class="caja a" style="animation-delay:1.6s;padding:40px"><div style="font-size:84px;font-weight:900;letter-spacing:-.05em;line-height:1">6 %</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">de los venezolanos tiene póliza de salud.</div><div class="fuente" style="margin-top:20px">Finanzas Digital, 2026</div></div>
-      <div class="caja a" style="animation-delay:4.2s;padding:40px;background:var(--rosa)"><div style="font-size:62px;font-weight:900;letter-spacing:-.05em;line-height:1">🚫 En la puerta</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">Clínicas que se niegan a atender: "la aseguradora nos debe".</div><div class="fuente" style="margin-top:20px;color:#3a2a30">NTN24, 2023 · prensa regional</div></div>
-      <div class="caja a" style="animation-delay:7s;padding:40px"><div style="font-size:84px;font-weight:900;letter-spacing:-.05em;line-height:1">📎 1 PDF</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">por correo para pedir un reembolso. Y a esperar, sin saber cuánto.</div><div class="fuente" style="margin-top:20px">Instructivos públicos de reembolso</div></div>
+      <div class="caja a" style="animation-delay:1.6s;padding:40px"><div style="font-size:84px;font-weight:750;color:#0b2545;letter-spacing:-.04em;line-height:1">6 %</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">de los venezolanos tiene póliza de salud.</div><div class="fuente" style="margin-top:20px">Finanzas Digital, 2026</div></div>
+      <div class="caja a" style="animation-delay:4.2s;padding:40px;background:var(--rosa)"><div style="font-size:62px;font-weight:750;color:#0b2545;letter-spacing:-.04em;line-height:1">En la puerta</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">Clínicas que se niegan a atender: "la aseguradora nos debe".</div><div class="fuente" style="margin-top:20px;color:#3a2a30">NTN24, 2023 · prensa regional</div></div>
+      <div class="caja a" style="animation-delay:7s;padding:40px"><div style="font-size:84px;font-weight:750;color:#0b2545;letter-spacing:-.04em;line-height:1">1 PDF</div><div style="font-size:31px;line-height:1.35;margin-top:18px;font-weight:600">por correo para pedir un reembolso. Y a esperar, sin saber cuánto.</div><div class="fuente" style="margin-top:20px">Instructivos públicos de reembolso</div></div>
     </div>
   </div>
 </section>
@@ -99,7 +118,8 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
     <img src="img/pase.jpg" data-ventana="0,5.8">
     <img src="img/negativa.jpg" data-ventana="5.8,99" style="animation: pan4 4s ease-in-out 7.5s both">
   </div>
-  <style>@keyframes pan4 { from { transform:translateY(0); } to { transform:translateY(-360px); } }</style>
+  <style>@keyframes pan4 { from { transform:translateY(0); } to { transform:translateY(-360px); } }.esc .p { --r:0deg !important; } #e1 .pegatina { display:none; }
+</style>
 </section>
 
 <!-- 5. Presupuesto -->
@@ -144,7 +164,8 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
     <p class="lead a" style="animation-delay:1.8s">Cada caso cuenta los días hábiles frente al plazo de tu póliza. Si se vence, envías el reclamo formal con un toque.</p>
   </div>
   <div class="pantalla a" style="animation-delay:.4s"><img src="img/casos.jpg" style="animation: pan7 4.5s ease-in-out 2.5s both"></div>
-  <style>@keyframes pan7 { from { transform:translateY(0); } to { transform:translateY(-120px); } }</style>
+  <style>@keyframes pan7 { from { transform:translateY(0); } to { transform:translateY(-120px); } }.esc .p { --r:0deg !important; } #e1 .pegatina { display:none; }
+</style>
   <div class="pegatina p" style="right:120px;bottom:60px;background:var(--menta);--r:-4deg;animation-delay:7s">Reclamo enviado ✓</div>
 </section>
 
@@ -162,15 +183,16 @@ p.lead { font-size:34px; line-height:1.38; font-weight:500; }
     <p class="a fuente" style="animation-delay:9s;margin-top:30px;font-size:24px">Datos agregados y anónimos · cifras ilustrativas</p>
   </div>
   <div class="pantalla a" style="animation-delay:.4s;width:1060px"><img src="img/supervisor.jpg" style="animation: pan8 5s ease-in-out 6.5s both"></div>
-  <style>@keyframes pan8 { from { transform:translateY(0); } to { transform:translateY(-200px); } }</style>
+  <style>@keyframes pan8 { from { transform:translateY(0); } to { transform:translateY(-200px); } }.esc .p { --r:0deg !important; } #e1 .pegatina { display:none; }
+</style>
 </section>
 
 <!-- 9. Cierre -->
 <section class="esc ne" id="e9">
   <div style="position:absolute;left:0;right:0;top:250px;text-align:center">
-    <div class="logo a" style="font-size:150px;font-weight:900;letter-spacing:-.06em;line-height:1;white-space:nowrap">Reembolsa<span style="margin-left:12px;border-color:#fff;box-shadow:12px 12px 0 #fff;border-width:6px;border-radius:26px;padding:0 22px 8px;color:var(--tinta)">Ya</span></div>
+    <div class="logo a" style="font-size:150px;font-weight:900;letter-spacing:-.06em;line-height:1;white-space:nowrap">Reembolsa<span style="margin-left:12px;">Ya</span></div>
     <h1 class="a" style="animation-delay:.5s;margin-top:60px;font-size:68px">De la puerta de la clínica <span style="color:var(--amarillo)">hasta que te pagan.</span></h1>
-    <div class="p" style="animation-delay:1.4s;display:inline-block;margin-top:70px;background:var(--amarillo);color:var(--tinta);font:800 52px GeistMono;padding:22px 46px;border-radius:22px;border:5px solid #fff">reembolsaya.vercel.app</div>
+    <div class="p" style="animation-delay:1.4s;display:inline-block;margin-top:70px;background:#059669;color:#fff;font:700 52px GeistMono;padding:22px 46px;border-radius:16px">reembolsaya.vercel.app</div>
   </div>
 </section>
 

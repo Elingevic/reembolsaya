@@ -81,49 +81,60 @@ $("#reiniciar").addEventListener("click", () => { S = SEMILLA(); guardar(); rend
 // Landing
 // ---------------------------------------------------------------------------
 function landing() {
+  const ic = (t) => `<span class="rol-ic">${t}</span>`;
   return `
-  <section class="hero">
+  <div class="portada"><section class="hero">
     <div class="entra">
-      <span class="etq am">AseguraTech26 · Desafío 4 · RegTech</span>
+      <span class="etq">AseguraTech26 · Desafío 4 · RegTech</span>
       <h1>De la puerta de la clínica <mark>hasta que te pagan.</mark></h1>
-      <p class="lead">ReembolsaYa pone orden en el seguro de salud: un pase digital para que la clínica vea tu cobertura al instante, la carta aval en minutos, el reembolso con una foto y un reclamo formal automático si se vence el plazo. Y el supervisor, por fin, ve dónde se traba todo.</p>
-      <div class="ctas"><a class="btn am lg" href="#/paciente">Probar como paciente →</a><a class="btn lg" href="#/supervisor">Ver panel del supervisor</a></div>
+      <p class="lead">ReembolsaYa ordena el seguro de salud de punta a punta: la clínica verifica tu cobertura al instante, la carta aval sale en minutos, el reembolso se pide con una foto y, si se vence el plazo, el reclamo formal ya está redactado. Con esos datos, el supervisor ve dónde se traba el sistema.</p>
+      <div class="ctas"><a class="btn am lg" href="#/paciente">Probar como paciente</a><a class="btn lg" href="#/supervisor">Ver panel del supervisor</a></div>
+      <div class="confianza"><span>No vende seguros ni intermedia</span><span>Datos de salud con consentimiento</span><span>Supervisión con datos anónimos</span></div>
     </div>
-    <div class="collage entra" style="animation-delay:.1s">
-      <div class="caja" style="left:20px;top:10px;width:300px;transform:rotate(-2deg)"><span class="etq me">Pase de salud</span><div class="fila" style="margin-top:12px">${qr("RY-PASE-DEMO", 90)}<div><b style="font-size:18px">Póliza vigente</b><div class="sub">Disponible ${usd(18450)}</div></div></div></div>
-      <div class="caja amarilla" style="right:10px;top:120px;width:280px;transform:rotate(2.5deg)"><span class="etq">Carta aval</span><div style="font-size:30px;font-weight:900;margin-top:8px">12 min</div><div class="sub" style="color:#111">aprobada, sin llamadas ni colas</div></div>
-      <div class="caja rosa" style="left:40px;top:250px;width:290px;transform:rotate(1.5deg)"><span class="etq">Reembolso</span><div style="font-weight:850;margin-top:8px">📸 Una foto de la factura</div><div class="sub" style="color:#111">La IA lee el RIF, el n.º de control y el monto en bolívares y dólares.</div></div>
-      <span class="pegatina" style="right:40px;top:360px;background:var(--menta);transform:rotate(-6deg)">Pagado ✓</span>
+    <div class="vitrina entra" style="animation-delay:.08s">
+      <div class="top"><i></i><i></i><i></i></div>
+      <div class="cuerpo">
+        <div class="entre"><div><div class="sub">Póliza HCM · ${POLIZA.aseguradora}</div><div style="font-size:20px;font-weight:700;color:var(--navy)">${POLIZA.titular}</div></div><span class="chip ok">● Vigente</span></div>
+        <div class="grid3" style="gap:12px">
+          <div class="caja kpi" style="padding:14px;box-shadow:none"><div class="v" style="font-size:22px">${usd(18450)}</div><div class="e" style="font-size:12.5px">disponible</div></div>
+          <div class="caja kpi" style="padding:14px;box-shadow:none"><div class="v" style="font-size:22px">12 min</div><div class="e" style="font-size:12.5px">carta aval</div></div>
+          <div class="caja kpi" style="padding:14px;box-shadow:none"><div class="v" style="font-size:22px">4,1 d</div><div class="e" style="font-size:12.5px">hasta el pago</div></div>
+        </div>
+        <div class="caja" style="padding:14px 16px;box-shadow:none">
+          <div class="entre" style="margin-bottom:8px"><b style="font-size:14px">RY-2026-0419 · Consulta de traumatología</b><span class="chip info">En revisión</span></div>
+          <ul class="linea-t" style="font-size:13.5px"><li class="ok">Enviado completo con una foto</li><li class="ok">Recibido sin observaciones</li><li class="ahora">Día hábil 3 de ${POLIZA.plazo}</li></ul>
+        </div>
+      </div>
     </div>
-  </section>
+  </section></div>
   <section class="seccion">
-    <span class="etq ro">El problema</span>
+    <span class="etq">El problema</span>
     <h2 class="grande">Tener seguro de salud no garantiza que te atiendan, ni que te paguen a tiempo.</h2>
-    <div class="grid3" style="margin-top:22px">
-      <div class="caja"><div class="dato">6 %</div><p>de los venezolanos tiene una póliza de salud. Quien la tiene la cuida como un tesoro… hasta que la necesita.</p><div class="fuente">Finanzas Digital, abril 2026</div></div>
-      <div class="caja"><div class="dato">Te dejan en la puerta</div><p>El Ministerio Público anunció en 2023 una investigación a clínicas que se negaban a atender a asegurados al día con sus cuotas.</p><div class="fuente">NTN24 / Ministerio Público, agosto 2023</div></div>
-      <div class="caja"><div class="dato">1 PDF</div><p>Así se pide hoy un reembolso: escanear todo en un solo archivo, enviarlo por correo y esperar. Si falta un papel, empieza de nuevo.</p><div class="fuente">Instructivos de aseguradoras y corredores</div></div>
+    <div class="grid3" style="margin-top:24px">
+      <div class="caja"><div class="dato">6 %</div><p class="sub" style="font-size:14.5px;color:var(--texto)">de los venezolanos tiene una póliza de salud. Es un mercado pequeño que se pierde si la experiencia decepciona.</p><div class="fuente">Finanzas Digital, abril de 2026</div></div>
+      <div class="caja"><div class="dato">Atención negada</div><p class="sub" style="font-size:14.5px;color:var(--texto)">El Ministerio Público anunció en 2023 investigaciones a clínicas que se negaban a atender a pacientes asegurados.</p><div class="fuente">NTN24, agosto de 2023</div></div>
+      <div class="caja"><div class="dato">Un PDF por correo</div><p class="sub" style="font-size:14.5px;color:var(--texto)">Así se pide hoy un reembolso: todo escaneado en un solo archivo. Si falta un papel, el caso vuelve atrás.</p><div class="fuente">Instructivos públicos de aseguradoras y corredores</div></div>
     </div>
   </section>
   <section class="seccion">
-    <span class="etq ce">La solución</span>
+    <span class="etq">La solución</span>
     <h2 class="grande">Un solo recorrido, cinco momentos.</h2>
     <div class="viaje">
-      <div style="background:var(--menta)"><span class="n">01</span><b>En la puerta</b><p>Pase digital: la clínica ve la póliza vigente y el saldo.</p></div>
-      <div style="background:var(--amarillo)"><span class="n">02</span><b>Carta aval</b><p>Presupuesto claro: qué cubre el seguro y qué pagas tú.</p></div>
-      <div style="background:var(--rosa)"><span class="n">03</span><b>Reembolso con foto</b><p>La IA lee y valida antes de enviar.</p></div>
-      <div style="background:var(--celeste)"><span class="n">04</span><b>Seguimiento</b><p>Cuenta regresiva del plazo de la póliza.</p></div>
-      <div style="background:var(--lila)"><span class="n">05</span><b>Reclamo formal</b><p>Si se vence, sale listo con un toque.</p></div>
+      <div><span class="n">01</span><b>Pase de salud</b><p>La clínica verifica póliza vigente y saldo.</p></div>
+      <div><span class="n">02</span><b>Carta aval</b><p>Qué cubre el seguro y qué pagas tú.</p></div>
+      <div><span class="n">03</span><b>Reembolso con foto</b><p>Lectura automática y validación antes de enviar.</p></div>
+      <div><span class="n">04</span><b>Seguimiento</b><p>Días hábiles frente al plazo de la póliza.</p></div>
+      <div><span class="n">05</span><b>Reclamo formal</b><p>Si se vence el plazo, sale listo para enviar.</p></div>
     </div>
   </section>
   <section class="seccion">
-    <span class="etq li">Prueba el prototipo</span>
-    <h2 class="grande">Cuatro miradas al mismo sistema.</h2>
+    <span class="etq">Prototipo</span>
+    <h2 class="grande">Cuatro vistas del mismo sistema.</h2>
     <div class="grid4" style="margin-top:22px">
-      <a class="caja" style="text-decoration:none" href="#/paciente"><div style="font-size:30px">🙋‍♂️</div><h2 class="sec" style="margin-top:8px">Paciente</h2><p class="sub">Pase, carta aval, reembolso con foto, plazos y reclamo formal.</p></a>
-      <a class="caja" style="text-decoration:none" href="#/clinica"><div style="font-size:30px">🏥</div><h2 class="sec" style="margin-top:8px">Clínica</h2><p class="sub">Admisión con el pase y carta aval en minutos.</p></a>
-      <a class="caja" style="text-decoration:none" href="#/aseguradora"><div style="font-size:30px">🏢</div><h2 class="sec" style="margin-top:8px">Aseguradora</h2><p class="sub">Casos completos, duplicados y sobrecobros detectados.</p></a>
-      <a class="caja" style="text-decoration:none" href="#/supervisor"><div style="font-size:30px">🔎</div><h2 class="sec" style="margin-top:8px">Supervisor</h2><p class="sub">Tiempos de pago, negativas de atención y sobrecobros, en datos agregados.</p></a>
+      <a class="caja" style="text-decoration:none" href="#/paciente">${ic("P")}<h2 class="sec" style="margin-top:14px">Paciente</h2><p class="sub">Pase, carta aval, reembolso con foto, plazos y reclamo formal.</p></a>
+      <a class="caja" style="text-decoration:none" href="#/clinica">${ic("C")}<h2 class="sec" style="margin-top:14px">Clínica</h2><p class="sub">Admisión con el pase y carta aval en minutos.</p></a>
+      <a class="caja" style="text-decoration:none" href="#/aseguradora">${ic("A")}<h2 class="sec" style="margin-top:14px">Aseguradora</h2><p class="sub">Casos completos, duplicados y sobrecobros detectados.</p></a>
+      <a class="caja" style="text-decoration:none" href="#/supervisor">${ic("S")}<h2 class="sec" style="margin-top:14px">Supervisor</h2><p class="sub">Tiempos de pago, negativas de atención y sobrecobros, en datos agregados.</p></a>
     </div>
   </section>
   <footer class="pie"><span>ReembolsaYa · Prototipo para AseguraTech26 (SUDEASEG) · Noviembre de 2026</span><span>ReembolsaYa es software: no vende seguros ni intermedia. El riesgo sigue en la aseguradora y la relación con el cliente, en su corredor.</span></footer>`;
@@ -157,7 +168,7 @@ function paciente() {
 function vClinica() {
   const n = S.negativa;
   let neg = "";
-  if (!n) neg = `<button class="btn ro" data-acc="negativa">🚫 Me negaron la atención</button>`;
+  if (!n) neg = `<button class="btn ro" data-acc="negativa">Me negaron la atención</button>`;
   else if (n.paso === 1) {
     neg = `<div class="caja rosa entra"><h2 class="sec">¿Dónde y por qué?</h2>
       <label class="sub" style="color:#111;font-weight:700">Clínica</label>
@@ -170,8 +181,8 @@ function vClinica() {
       <div class="linea"><span>Clínica</span><b>${esc(n.clinica)}</b></div><div class="linea"><span>Motivo</span><b>${esc(n.motivo)}</b></div>
       <div class="linea"><span>Aviso a ${POLIZA.aseguradora}</span><b>✓ enviado</b></div><div class="linea"><span>Datos al supervisor</span><b>✓ anónimos</b></div>
       <h2 class="sec" style="margin-top:14px">Clínicas con convenio cerca</h2>
-      <div class="doc"><span class="ic">🏥</span><div><b>Policlínica Demo Valencia</b><div class="sub">Convenio activo · aceptó 98 % de pases este mes</div></div></div>
-      <div class="doc"><span class="ic">🏥</span><div><b>Centro Médico Muestra Maracay</b><div class="sub">Convenio activo · carta aval promedio 14 min</div></div></div>
+      <div class="doc"><span class="rol-ic" style="width:34px;height:34px;font-size:13px">+</span><div><b>Policlínica Demo Valencia</b><div class="sub">Convenio activo · aceptó 98 % de pases este mes</div></div></div>
+      <div class="doc"><span class="rol-ic" style="width:34px;height:34px;font-size:13px">+</span><div><b>Centro Médico Muestra Maracay</b><div class="sub">Convenio activo · carta aval promedio 14 min</div></div></div>
       <button class="btn sm" style="margin-top:12px" data-acc="neg-cancelar">Cerrar</button></div>`;
   }
   return `
@@ -189,8 +200,8 @@ function vClinica() {
       <div class="qr">${qr("RY-PASE-" + POLIZA.numero)}<div class="mono" style="font-weight:800;margin-top:6px">RY-PASE-7K2M</div></div>
     </div>
     <div class="grid2" style="margin-top:22px;align-items:start">
-      <div class="caja"><h2 class="sec">🚑 ¿Es una emergencia?</h2><p class="sub">La clínica puede pedir la carta aval desde su pantalla con tu pase. No tienes que llamar a nadie.</p><a class="btn am" style="margin-top:12px" href="#/clinica">Ver la pantalla de la clínica →</a></div>
-      <div class="caja"><h2 class="sec">🚫 ¿No te quisieron atender?</h2><p class="sub">Regístralo en un minuto. Avisamos a tu aseguradora, te mostramos clínicas con convenio y el caso suma (anónimo) al panel del supervisor.</p><div style="margin-top:12px">${neg}</div></div>
+      <div class="caja"><h2 class="sec">¿Es una emergencia?</h2><p class="sub">La clínica puede pedir la carta aval desde su pantalla con tu pase. No tienes que llamar a nadie.</p><a class="btn am" style="margin-top:12px" href="#/clinica">Ver la pantalla de la clínica →</a></div>
+      <div class="caja"><h2 class="sec">¿No te quisieron atender?</h2><p class="sub">Regístralo en un minuto. Avisamos a tu aseguradora, te mostramos clínicas con convenio y el caso suma (anónimo) al panel del supervisor.</p><div style="margin-top:12px">${neg}</div></div>
     </div>`;
 }
 
@@ -200,7 +211,7 @@ function vPresupuesto() {
     <span class="etq am">Paso 2</span><h1 class="titulo">Presupuesto antes de operarte</h1>
     <p class="sub" style="font-size:15.5px">Carlos necesita una reconstrucción de ligamento cruzado. Sube el presupuesto y ReembolsaYa le dice qué cubre la póliza, qué paga él y qué está caro.</p>
     <div class="grid2" style="margin-top:20px;align-items:start">
-      <div class="caja"><h2 class="sec">📄 Presupuesto de la clínica</h2>
+      <div class="caja"><h2 class="sec">Presupuesto de la clínica</h2>
         ${items.map(([t, m, a]) => `<div class="linea"><span>${t}${a ? `<br><span class="chip warn" style="margin-top:4px">⚠ ${a}</span>` : ""}</span><b>${usd(m)}</b></div>`).join("")}
         <div class="linea" style="font-size:17px"><b>Total</b><b>${usd(6800)}</b></div></div>
       <div class="pila">
@@ -208,7 +219,7 @@ function vPresupuesto() {
         <div class="caja rosa"><div class="sub" style="color:#111;font-weight:700">Lo que pagas tú</div><div style="font-size:44px;font-weight:900;letter-spacing:-.04em">${usd(900)}</div><div class="sub" style="color:#111">Deducible ${usd(500)} + diferencia de habitación superior ${usd(400)}</div></div>
         ${S.carta ? `<div class="caja amarilla entra"><span class="etq">Carta aval ${S.carta.n}</span><div style="font-size:24px;font-weight:900;margin-top:8px">Aprobada por ${usd(S.carta.monto)}</div><div class="sub" style="color:#111">Respuesta en ${S.carta.min} minutos · ya aparece en tu pase y en la clínica</div></div>`
           : `<button class="btn am lg bloque" data-acc="carta">Pedir carta aval por ${usd(5900)}</button>`}
-        <div class="caja"><b>💡 Sugerencia</b><p class="sub">Los honorarios están por encima de la referencia de la zona. Puedes pedir a tu corredor que los negocie antes de operarte.</p></div>
+        <div class="caja"><b>Sugerencia</b><p class="sub">Los honorarios están por encima de la referencia de la zona. Puedes pedir a tu corredor que los negocie antes de operarte.</p></div>
       </div>
     </div>`;
 }
@@ -217,15 +228,15 @@ function vReembolso() {
   const r = S.reem;
   let cuerpo = "";
   if (r.etapa === "inicio") {
-    cuerpo = `<div class="zona-foto"><div style="font-size:44px">📸</div><h2 class="sec" style="justify-content:center;margin-top:6px">Toma una foto del informe y la factura</h2><p class="sub">También funciona por WhatsApp. Aquí puedes usar documentos de ejemplo.</p>
+    cuerpo = `<div class="zona-foto"><div class="rol-ic" style="margin:0 auto;width:52px;height:52px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></div><h2 class="sec" style="justify-content:center;margin-top:6px">Toma una foto del informe y la factura</h2><p class="sub">También funciona por WhatsApp. Aquí puedes usar documentos de ejemplo.</p>
       <button class="btn am lg" style="margin-top:14px" data-acc="foto">Usar documentos de ejemplo</button></div>`;
   } else if (r.etapa === "leyendo") {
-    cuerpo = `<div class="zona-foto"><div style="font-size:44px">🤖</div><h2 class="sec" style="justify-content:center;margin-top:6px">Leyendo tus documentos…</h2><p class="sub">Buscando RIF, número de control, montos y tasa del día.</p></div>`;
+    cuerpo = `<div class="zona-foto"><div class="rol-ic" style="margin:0 auto;width:52px;height:52px">···</div><h2 class="sec" style="justify-content:center;margin-top:6px">Leyendo tus documentos…</h2><p class="sub">Buscando RIF, número de control, montos y tasa del día.</p></div>`;
   } else if (r.etapa === "leido") {
     const docs = [["Informe médico", true], ["Factura fiscal", true], ["Récipe o indicación médica", r.recipe]];
     const ok = docs.every((d) => d[1]);
     cuerpo = `<div class="grid2" style="align-items:start">
-      <div class="caja"><h2 class="sec">🤖 Lo que leyó la IA</h2>
+      <div class="caja"><h2 class="sec">Lo que leyó la IA</h2>
         <div class="campo"><b>Médico</b><span>Dra. Ana Rivas · Traumatología</span></div>
         <div class="campo"><b>Prestador</b><span>Clínica Ejemplo Caracas</span></div>
         <div class="campo"><b>RIF</b><span class="mono">J-50999888-1 ✓</span></div>
@@ -233,15 +244,15 @@ function vReembolso() {
         <div class="campo"><b>Fecha</b><span>28/10/2026</span></div>
         <div class="campo"><b>Monto</b><span>${bs(120 * TASA)} · tasa ${bs(TASA)} → <b>${usd(120)}</b></span></div>
         <div class="campo"><b>Concepto</b><span>Consulta de traumatología</span></div>
-        <div class="doc" style="background:var(--amarillo)"><span class="ic">⚠️</span><div><b>Cobro por encima de la referencia</b><div class="sub" style="color:#111">Consulta de traumatología en la zona: $60–80. Se envía igual, con la nota para la aseguradora.</div></div></div>
+        <div class="doc" style="background:var(--amarillo)"><span class="chip warn">!</span><div><b>Cobro por encima de la referencia</b><div class="sub" style="color:#111">Consulta de traumatología en la zona: $60–80. Se envía igual, con la nota para la aseguradora.</div></div></div>
       </div>
-      <div class="caja"><h2 class="sec">📋 Documentos</h2>
-        ${docs.map(([t, v]) => `<div class="doc" style="background:${v ? "var(--menta)" : "var(--rosa)"}"><span class="ic">${v ? "✅" : "❌"}</span><div><b>${t}</b><div class="sub" style="color:#111">${v ? "Listo y legible" : "Falta: tu póliza lo exige para consultas"}</div></div>${v ? "" : `<button class="btn sm" style="margin-left:auto" data-acc="recipe">📸 Agregar</button>`}</div>`).join("")}
+      <div class="caja"><h2 class="sec">Documentos</h2>
+        ${docs.map(([t, v]) => `<div class="doc" style="background:${v ? "var(--menta)" : "var(--rosa)"}"><span class="ic" style="font-weight:700;color:${v ? "var(--esmeralda)" : "var(--rojo)"}">${v ? "✓" : "✕"}</span><div><b>${t}</b><div class="sub" style="color:#111">${v ? "Listo y legible" : "Falta: tu póliza lo exige para consultas"}</div></div>${v ? "" : `<button class="btn sm" style="margin-left:auto" data-acc="recipe">Agregar</button>`}</div>`).join("")}
         <p class="sub" style="margin-top:12px">${ok ? "Todo completo. Tu caso llega a la aseguradora sin devoluciones." : "Te avisamos ahora, no dentro de 15 días cuando te lo devuelvan."}</p>
         <button class="btn ne lg bloque" style="margin-top:12px" data-acc="enviar-reem" ${ok ? "" : "disabled"}>Enviar a ${POLIZA.aseguradora}</button>
       </div></div>`;
   } else {
-    cuerpo = `<div class="caja menta entra"><span class="etq">${r.id}</span><h2 class="sec" style="margin-top:10px;font-size:26px">¡Enviado completo! 🎉</h2>
+    cuerpo = `<div class="caja menta entra"><span class="etq">${r.id}</span><h2 class="sec" style="margin-top:10px;font-size:22px">Enviado completo</h2>
       <ul class="linea-t" style="margin-top:8px"><li class="ok"><b>Enviado</b> · hoy ${hhmm()}</li><li class="ok"><b>Recibido por ${POLIZA.aseguradora}</b> · validado sin observaciones</li><li class="ahora"><b>En revisión</b> · plazo de tu póliza: ${POLIZA.plazo} días hábiles</li><li><b>Aprobado</b></li><li><b>Pagado</b></li></ul>
       <div class="fila" style="margin-top:10px"><button class="btn" data-vista="casos">Ver mis casos</button><button class="btn" data-acc="reem-nuevo">Otro reembolso</button></div></div>`;
   }
@@ -272,7 +283,7 @@ ${POLIZA.titular} · ${POLIZA.cedula}`;
       ${S.casos.map((c) => {
         const pct = Math.min(100, (c.dias / POLIZA.plazo) * 100), venc = c.dias > POLIZA.plazo && c.estado !== "Pagado";
         return `<div class="caja ${venc && !c.reclamo ? "rosa" : ""}"><div class="entre"><div><span class="mono" style="font-weight:800">${c.id}</span><div style="font-size:18px;font-weight:850">${esc(c.que)}</div></div><div style="text-align:right"><div style="font-size:24px;font-weight:900">${usd(c.monto)}</div>${chipEstado(c.estado)}</div></div>
-          ${c.estado !== "Pagado" ? `<div class="barra-saldo" style="margin-top:12px"><i style="width:${pct}%;background:${venc ? "var(--rojo)" : "var(--celeste)"}"></i></div><div class="sub" style="color:#111">Día hábil ${c.dias} de ${POLIZA.plazo}${venc ? ` · <b>vencido hace ${c.dias - POLIZA.plazo} días</b>` : ""}</div>` : `<div class="sub" style="margin-top:8px">Pagado en ${c.dias} días hábiles ✓</div>`}
+          ${c.estado !== "Pagado" ? `<div class="barra-saldo" style="margin-top:12px"><i style="width:${pct}%;background:${venc ? "var(--rojo)" : "var(--azul)"}"></i></div><div class="sub" style="color:#111">Día hábil ${c.dias} de ${POLIZA.plazo}${venc ? ` · <b>vencido hace ${c.dias - POLIZA.plazo} días</b>` : ""}</div>` : `<div class="sub" style="margin-top:8px">Pagado en ${c.dias} días hábiles ✓</div>`}
           ${venc && !c.reclamo ? `<div style="margin-top:14px"><b>Tu reclamo formal ya está redactado:</b><div class="carta" style="margin-top:8px">${esc(carta)}</div><button class="btn ne" style="margin-top:12px" data-acc="reclamo">Enviar reclamo formal</button></div>` : ""}
           ${c.reclamo ? `<div class="chip ok" style="margin-top:12px">✓ Reclamo formal enviado hoy · copia al registro del supervisor</div>` : ""}
         </div>`;
@@ -290,7 +301,7 @@ function vCubre() {
   return `<span class="etq li">Paso 5</span><h1 class="titulo">¿Me cubre?</h1>
     <p class="sub" style="font-size:15.5px">Pregunta en tus palabras. La respuesta cita la cláusula exacta de tu póliza, para que nadie te diga "eso no está cubierto" sin mostrarte dónde.</p>
     <div class="caja" style="margin-top:20px">
-      <div class="chat">${S.chat.length ? S.chat.map((m) => m.yo ? `<div class="burbuja yo">${esc(m.t)}</div>` : `<div class="burbuja bot entra">${esc(m.t)}<span class="cl">📎 ${esc(m.c)}</span></div>`).join("") : `<div class="burbuja bot">Hola, Carlos. ¿Qué quieres saber de tu póliza HCM?<span class="cl">📎 Póliza ${POLIZA.numero} · ${POLIZA.aseguradora}</span></div>`}</div>
+      <div class="chat">${S.chat.length ? S.chat.map((m) => m.yo ? `<div class="burbuja yo">${esc(m.t)}</div>` : `<div class="burbuja bot entra">${esc(m.t)}<span class="cl">Fuente: ${esc(m.c)}</span></div>`).join("") : `<div class="burbuja bot">Hola, Carlos. ¿Qué quieres saber de tu póliza HCM?<span class="cl">Fuente: Póliza ${POLIZA.numero} · ${POLIZA.aseguradora}</span></div>`}</div>
       <div class="sugerencias" style="margin-top:16px">${Object.keys(RESPUESTAS).map((q) => `<button class="btn sm" data-pregunta="${esc(q)}">${esc(q)}</button>`).join("")}</div>
       <p class="sub" style="margin-top:12px">En la demo, las respuestas y las cláusulas son de ejemplo.</p>
     </div>`;
@@ -319,7 +330,7 @@ function clinica() {
       <div class="caja kpi amarilla"><div class="v">2</div><div class="e">aseguradoras con atraso</div><div class="d" style="color:#111">más de 45 días sin pagar</div></div>
       <div class="caja kpi"><div class="v">0</div><div class="e">negativas registradas</div><div class="d">en los últimos 30 días</div></div>
     </div>
-    <div class="caja" style="margin-top:20px"><div class="fila" style="flex-wrap:wrap"><input class="btn mono" style="flex:1;min-width:220px;justify-content:flex-start;text-align:left;box-shadow:none" id="cod" value="${a ? "RY-PASE-7K2M" : ""}" placeholder="Código del pase o cédula"><button class="btn am" data-acc="escanear">📷 Escanear pase de ejemplo</button></div>${res}</div>
+    <div class="caja" style="margin-top:20px"><div class="fila" style="flex-wrap:wrap"><input class="btn mono" style="flex:1;min-width:220px;justify-content:flex-start;text-align:left;box-shadow:none" id="cod" value="${a ? "RY-PASE-7K2M" : ""}" placeholder="Código del pase o cédula"><button class="btn am" data-acc="escanear">Escanear pase de ejemplo</button></div>${res}</div>
   </div>`;
 }
 
@@ -343,8 +354,8 @@ function aseguradora() {
         <td style="white-space:nowrap">${b.estado === "Pagado" ? "—" : b.estado === "Aprobado" ? `<button class="btn sm me" data-pagar="${b.id}">Pagar</button>` : `<button class="btn sm am" data-aprobar="${b.id}">Aprobar</button>`}</td></tr>`).join("")}
     </tbody></table></div>
     <div class="grid2" style="margin-top:20px">
-      <div class="caja"><h2 class="sec">🧾 Cómo se detecta un sobrecobro</h2><p class="sub">Cada factura se compara con el rango de precios de su procedimiento en la misma zona, calculado con los reclamos procesados en la plataforma. Si se sale del rango, el caso llega con la alerta y la diferencia.</p></div>
-      <div class="caja"><h2 class="sec">🚫 Negativas de atención a tus asegurados</h2><p class="sub">${S.negativa && S.negativa.paso === 2 ? `<b>1 nueva hoy:</b> ${esc(S.negativa.clinica)} · "${esc(S.negativa.motivo)}".` : "Sin negativas nuevas hoy."} Cada negativa llega con la clínica y el motivo, para resolverla antes de que escale.</p></div>
+      <div class="caja"><h2 class="sec">Cómo se detecta un sobrecobro</h2><p class="sub">Cada factura se compara con el rango de precios de su procedimiento en la misma zona, calculado con los reclamos procesados en la plataforma. Si se sale del rango, el caso llega con la alerta y la diferencia.</p></div>
+      <div class="caja"><h2 class="sec">Negativas de atención a tus asegurados</h2><p class="sub">${S.negativa && S.negativa.paso === 2 ? `<b>1 nueva hoy:</b> ${esc(S.negativa.clinica)} · "${esc(S.negativa.motivo)}".` : "Sin negativas nuevas hoy."} Cada negativa llega con la clínica y el motivo, para resolverla antes de que escale.</p></div>
     </div>
   </div>`;
 }
@@ -368,19 +379,19 @@ function supervisor() {
       <div class="caja kpi amarilla"><div class="v">+18 %</div><div class="e">sobrecobro promedio sobre la referencia</div></div>
     </div>
     <div class="grid2" style="margin-top:20px;align-items:start">
-      <div class="caja"><h2 class="sec">⏱️ Días hábiles de pago por aseguradora</h2>
-        ${TIEMPOS.map(([n, d]) => `<div class="hbar"><span>${n}</span><span class="pista"><i style="width:${(d / maxT) * 100}%;background:${d > POLIZA.plazo ? "var(--rosa)" : d > 8 ? "var(--amarillo)" : "var(--menta)"}"></i><span class="meta" style="left:${(POLIZA.plazo / maxT) * 100}%"></span></span><b>${d.toLocaleString("es-VE")} d</b></div>`).join("")}
-        <div class="leyenda"><span><i style="border-style:dashed;width:0;border-width:0 0 0 3px"></i>Plazo típico de póliza (${POLIZA.plazo} d)</span><span><i style="background:var(--rosa)"></i>Fuera de plazo</span></div></div>
-      <div class="caja"><h2 class="sec">🚫 Negativas de atención por estado</h2>
-        ${ESTADOS.map(([n, v]) => `<div class="hbar"><span>${n}</span><span class="pista"><i style="width:${(v / 25) * 100}%;background:var(--rosa)"></i></span><b>${v}</b></div>`).join("")}
+      <div class="caja"><h2 class="sec">Días hábiles de pago por aseguradora</h2>
+        ${TIEMPOS.map(([n, d]) => `<div class="hbar"><span>${n}</span><span class="pista"><i style="width:${(d / maxT) * 100}%;background:${d > POLIZA.plazo ? "var(--rojo)" : d > 8 ? "var(--naranja)" : "var(--esmeralda)"}"></i><span class="meta" style="left:${(POLIZA.plazo / maxT) * 100}%"></span></span><b>${d.toLocaleString("es-VE")} d</b></div>`).join("")}
+        <div class="leyenda"><span><i style="border-style:dashed;width:0;border-width:0 0 0 3px"></i>Plazo típico de póliza (${POLIZA.plazo} d)</span><span><i style="background:var(--rojo)"></i>Fuera de plazo</span></div></div>
+      <div class="caja"><h2 class="sec">Negativas de atención por estado</h2>
+        ${ESTADOS.map(([n, v]) => `<div class="hbar"><span>${n}</span><span class="pista"><i style="width:${(v / 25) * 100}%;background:var(--navy)"></i></span><b>${v}</b></div>`).join("")}
         <div class="linea" style="margin-top:8px"><span>Motivo más frecuente</span><b>"La aseguradora nos debe" · 46 %</b></div>
         <div class="linea"><span>Exigen pago adelantado con carta aval</span><b>31 %</b></div></div>
     </div>
-    <div class="caja" style="margin-top:20px"><h2 class="sec">💸 Sobrecobros por procedimiento (Gran Caracas)</h2>
+    <div class="caja" style="margin-top:20px"><h2 class="sec">Sobrecobros por procedimiento (Gran Caracas)</h2>
       <div class="tabla"><table><thead><tr><th>Procedimiento</th><th>Referencia de la zona</th><th>Mediana cobrada</th><th>Diferencia</th></tr></thead><tbody>
       ${SOBRECOBROS.map((r) => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td><span class="chip warn">${r[3]}</span></td></tr>`).join("")}</tbody></table></div>
       <p class="sub" style="margin-top:10px">Un sobrecobro consume la suma asegurada del paciente: protegerlo también es supervisar precios.</p></div>
-    <div class="caja negra" style="margin-top:20px"><h2 class="sec">📣 Reclamos escalados al supervisor</h2><p style="opacity:.85">${S.casos.some((c) => c.reclamo) ? "<b>1 nuevo hoy:</b> reembolso de $380 fuera de plazo con Seguros Tepuy (reclamo formal enviado por el asegurado). " : ""}Cada reclamo formal llega con su línea de tiempo y documentos, sin que el asegurado tenga que ir a una oficina.</p></div>
+    <div class="caja negra" style="margin-top:20px"><h2 class="sec" style="color:#fff">Reclamos escalados al supervisor</h2><p style="opacity:.85">${S.casos.some((c) => c.reclamo) ? "<b>1 nuevo hoy:</b> reembolso de $380 fuera de plazo con Seguros Tepuy (reclamo formal enviado por el asegurado). " : ""}Cada reclamo formal llega con su línea de tiempo y documentos, sin que el asegurado tenga que ir a una oficina.</p></div>
   </div>`;
 }
 
